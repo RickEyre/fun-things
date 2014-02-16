@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright (c) 2013 fun-things Contributors
+// Copyright (c) 2014 fun-things Contributors
 
 #include <string>
 #include "suit.h"
