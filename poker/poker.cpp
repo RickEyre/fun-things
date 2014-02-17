@@ -5,11 +5,11 @@
 #include <string>
 #include <iostream>
 
-#include "lib/deck-manager.h"
+#include "lib/deck.h"
 
 using namespace std;
 
-void promptUser(DeckManager &deckManager, int &draw)
+void promptUser(Deck &deck, int &draw)
 {
   cout << "Enter the number of the card you would like to redraw. 0 to quit." << endl;
   cin >> draw;
@@ -19,18 +19,18 @@ void promptUser(DeckManager &deckManager, int &draw)
 int main() {
   srand(time(NULL));
 
-  DeckManager deckManager;
+  Deck deck;
   int draw = -1;
-  cout << deckManager.displayHand() << endl;
-  promptUser(deckManager, draw);
+  cout << deck.displayHand() << endl;
+  promptUser(deck, draw);
 
   while (draw != 0) {
     if (draw < 1 || draw > 5) {
       cout << "You must enter a number between 0 and 5." << endl << endl;
     } else {
-      deckManager.newCard(draw - 1);
-      cout << deckManager.displayHand() << endl;
+      deck.newCard(draw - 1);
+      cout << deck.displayHand() << endl;
     }
-    promptUser(deckManager, draw);
+    promptUser(deck, draw);
   }
 }

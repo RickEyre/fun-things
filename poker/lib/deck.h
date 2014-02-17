@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class DeckManager {
+class Deck {
 private:
   Card* drawCard();
   void drawHand();
@@ -16,8 +16,8 @@ public:
   vector<Card*> hand;
   vector<Card*> discarded;
 
-  DeckManager();
-  ~DeckManager();
+  Deck();
+  ~Deck();
 
   string displayHand();
   void newCard(int place);

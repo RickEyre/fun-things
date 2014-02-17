@@ -2,9 +2,9 @@
 // Copyright (c) 2014 fun-things Contributors
 
 #include <cstdlib>
-#include "deck-manager.h"
+#include "deck.h"
 
-DeckManager::DeckManager()
+Deck::Deck()
 {
   int card = 0;
   for (int suit = 0; suit < 4; suit++) {
@@ -15,7 +15,7 @@ DeckManager::DeckManager()
   drawHand();
 }
 
-DeckManager::~DeckManager()
+Deck::~Deck()
 {
   for (vector<Card*>::iterator it = deck.begin(); it != deck.end(); ++it) {
     delete *it;
@@ -28,7 +28,7 @@ DeckManager::~DeckManager()
   }
 }
 
-string DeckManager::displayHand()
+string Deck::displayHand()
 {
   string h = "You have in your hand:\n";
   int count = 1;
@@ -38,13 +38,13 @@ string DeckManager::displayHand()
   return h;
 }
 
-void DeckManager::newCard(int place)
+void Deck::newCard(int place)
 {
   discarded.push_back(hand[place]);
   hand[place] = drawCard();
 }
 
-Card* DeckManager::drawCard()
+Card* Deck::drawCard()
 {
   int place = rand() % deck.size();
   Card* c = deck[place];
@@ -52,7 +52,7 @@ Card* DeckManager::drawCard()
   return c;
 }
 
-void DeckManager::drawHand()
+void Deck::drawHand()
 {
   for (int i = 0; i < 5; i++) {
     hand.push_back(drawCard());
